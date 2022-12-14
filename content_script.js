@@ -1,11 +1,14 @@
-chrome.runtime.onMessage.addListener(msgObj => {
-    // do something with msgObj]
+chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
+    if (data) {
+        console.log('message obj is', data)
+        tabQuery();
+        // apiCall();
+    }
+    sendResponse({
+        received: true
+    });
+})
 
-    console.log('message obj is', msgObj)
-    tabQuery();
-    apiCall();
-});
-// var footer = document.getElementsByClassName('sqs-block-content')
 let tabId;
 
 function apiCall() {
