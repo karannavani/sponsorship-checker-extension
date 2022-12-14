@@ -1,8 +1,6 @@
 console.log("This is a popup!");
 
-chrome.action.onClicked.addListener(function (tab) {
-    console.log("Hello")
-});
+
 // var footer = document.getElementsByClassName('sqs-block-content')
 let tabId;
 
@@ -13,11 +11,13 @@ let tabId;
 // }
 
 function tabQuery() {
+    let paragraphArr = [];
     console.log('function is running')
-    console.log('body is', document.querySelectorAll('p'))
     document.querySelectorAll('p').forEach(paragraph => {
-        console.log(paragraph.innerText)
+        paragraphArr.push(paragraph.innerText);
     })
+    paragraphBody = paragraphArr.toString();
+    console.log(paragraphBody.slice(0,1500))
 
     // chrome.tabs.query({active : true, currentWindow: true})
     // .then(tab => console.log('tab is', tab))
