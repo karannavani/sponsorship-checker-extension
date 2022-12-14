@@ -1,7 +1,7 @@
 chrome.tabs.query({active : true}).then(tabs => getPageTitle(tabs));
 
 function sendMessage(tab) {
-    chrome.tabs.sendMessage(tab.id, {toScrape:"yes"});
+    chrome.tabs.sendMessage(tab.id, {toScrape:"yes"}, (res) => console.log('res is', res));
 }
 
 function getPageTitle([tab]) {
